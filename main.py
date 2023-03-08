@@ -93,6 +93,9 @@ def trap(x, y, turn, a, b, h, angle, border, brdclr, bgclr):
 def left():
     """
 
+    Igor
+    x: [-400; -133]
+
     """
     pass
 
@@ -100,12 +103,18 @@ def left():
 def middle():
     """
 
+    Ira
+    x: [-134; 133]
+
     """
     pass
 
 
 def right():
     """
+
+    Sasha
+    x: [134; 400]
 
     """
     pass
