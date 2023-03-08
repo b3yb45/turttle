@@ -90,5 +90,32 @@ def trap(x, y, turn, a, b, h, angle, border, brdclr, bgclr):
     pass
 
 
-if __name__ == '__main__':
+def left():
+    """
+
+    """
     pass
+
+
+def middle():
+    """
+
+    """
+    pass
+
+
+def right():
+    """
+
+    """
+    pass
+
+
+def execute_main():
+    left()
+    middle()
+    right()
+
+
+if __name__ == '__main__':
+    execute_main()
