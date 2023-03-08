@@ -80,7 +80,7 @@ def trap(x, y, turn, a, b, h, angle, border, brdclr, bgclr):
     """
 
     x, y - position
-    a, b, c - bases
+    a, b - bases
     h - height
     turn - starting a angle
     border - border width
