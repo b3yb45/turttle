@@ -60,6 +60,13 @@ def n_shape(x, y, turn, length, n, border, brdclr, bgclr):
     border - border width
 
     """
+    x,y = map(float, input("Enter coordinates (x,y): ").split())
+    turn = int(input("Enter angle: "))
+    length = float(input("Enter side length: "))
+    n = int(input("Enter the amount of angles: "))
+    border = float(input("Enter border width: "))
+
+
 
     pass
 
