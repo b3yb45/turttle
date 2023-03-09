@@ -60,11 +60,26 @@ def n_shape(x, y, turn, length, n, border, brdclr, bgclr):
     border - border width
 
     """
-    x,y = map(float, input("Enter coordinates (x,y): ").split())
-    turn = int(input("Enter angle: "))
+    shape("turtle")
+
+    a, b = map(float, input("Enter coordinates x, y: ").split())
     length = float(input("Enter side length: "))
     n = int(input("Enter the amount of angles: "))
     border = float(input("Enter border width: "))
+    color("pink", "cyan")
+
+    setx(a)
+    sety(b)
+    pensize(border)
+
+    begin_fill
+    pd()
+    for i in range(n):
+        fd(length)
+        rt(360 / n)
+    end_fill
+    pu()
+    done()
 
 
 
