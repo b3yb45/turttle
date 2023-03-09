@@ -11,7 +11,33 @@ def triangle(x, y, turn, side1, side2, angle, border, brdclr, bgclr):
 
     """
 
-    pass
+    x, y = map(float, input('x, y =').split())  # Parameters.
+    turn = int(input('turn ='))
+    brdclr, bgclr = input('colors =').split()  # Colors of border and figure.
+    side1, side2 = map(float, input('sides=').split())  # Length of sides.
+    border = float(input('pen size ='))
+    angle1 = int(input('angle ='))  # Angle between two sides
+
+    pu()
+    setx(x)
+    sety(y)
+    color(brdclr, bgclr)
+    pensize(border)
+    rt(turn)
+    pd()
+    begin_fill()
+    side3 = sqrt(side1 ** 2 + side2 ** 2 - 2 * side1 * side2 * cos(angle1))
+    angle2 = degrees(acos((side3 ** 2 + side2 ** 2 - side1 ** 2) / (2 * side2 * side3)))
+    angle3 = degrees(acos((side1 ** 2 + side3 ** 2 - side2 ** 2) / (2 * side1 * side3)))
+    fd(side1)
+    rt(180 - angle3)
+    fd(side3)
+    rt(180 - angle2)
+    fd(side2)
+    rt(180 - angle1)
+    end_fill()
+    pu()
+    done()
 
 
 def ellipse(x, y, turn, a, b, border, brdclr, bgclr):
@@ -49,7 +75,28 @@ def rectangle(x, y, turn, a, b, border, brdclr, bgclr):
 
     """
 
-    pass
+    x, y = map(float, input('x, y = ').split())  # Parameters.
+    turn = int(input('turn ='))
+    brdclr, bgclr = input('colors = ').split()  # Color of border and figure.
+    a, b = map(float, input('length, width =').split())  # Length and width of figure.
+    border = float(input('pen size ='))
+
+    pu()
+    setx(x)
+    sety(y)
+    color(brdclr, bgclr)
+    pensize(border)
+    rt(turn)
+    pd()
+    begin_fill()
+    for i in range(2):
+        fd(a)
+        rt(90)
+        fd(b)
+        rt(90)
+    end_fill()
+    pu()
+    done()
 
 
 def n_shape(x, y, turn, length, n, border, brdclr, bgclr):
@@ -95,7 +142,29 @@ def rhomb(x, y, turn, length, angle, border, brdclr, bgclr):
 
     """
 
-    pass
+    x, y = map(int, input('x, y =').split())  # Parameters.
+    turn = int(input('turn ='))
+    brdclr, bgclr = input('color =').split()  # Colors of border and figure.
+    length = float(input('sides ='))  # Sides of figure.
+    border = float(input('pensize ='))
+    angle = int(input('angle ='))
+
+    pu()
+    setx(x)
+    sety(y)
+    pensize(border)
+    color(brdclr, bgclr)
+    rt(turn)
+    pd()
+    begin_fill()
+    for i in range(2):
+        fd(length)
+        lt(180 - angle)
+        fd(length)
+        lt(angle)
+    end_fill()
+    pu()
+    done()
 
 
 def trap(x, y, turn, a, b, h, angle, border, brdclr, bgclr):
