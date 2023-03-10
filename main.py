@@ -49,7 +49,6 @@ def ellipse(x, y, turn, a, b, border, brdclr, bgclr):
     border - border width
 
     """
-
     pass
 
 
@@ -62,28 +61,7 @@ def half_ellipse(x0, y0, turn, a, b, border, brdclr, bgclr):
     border - border width
 
     """
-    x_prev = xcor()
-    y_prev = ycor()
-    pu()
-    pensize(border)
-    color(brdclr, bgclr)
-    goto(x0, y0)
-    lt(turn)
-    pd()
-    fd(a)
-    x = xcor()
-    while x != x0:
-        y = b * ((1 - ((x - x0) / a) ** 2) ** 0.5)
-        pd()
-        goto(x, y)
-        if x0 > x:
-            x += 1
-        else:
-            x -= 1
-    pu()
-    rt(turn)
-    goto(x_prev, y_prev)
-    done()
+    pass
 
 
 def rectangle(x, y, turn, a, b, border, brdclr, bgclr):
