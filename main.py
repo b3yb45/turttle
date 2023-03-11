@@ -37,7 +37,7 @@ def triangle(x, y, turn, side1, side2, angle, border, brdclr="black", fill=''):
     done()
 
 
-def arc(x0, y0, turn, a, b, angle=360, border=1, brdclr='black', fill=''):
+def arc(x0=0, y0=0, turn=0, a=50, b=25, angle=360, border=1, brdclr='black', fill=''):
     """
 
     x0, y0 - position
@@ -59,22 +59,27 @@ def arc(x0, y0, turn, a, b, angle=360, border=1, brdclr='black', fill=''):
     turn = radians(turn)
 
     # Start.
-    if isdown():
-        pu()
+    pu()
     goto(x0, y0)
 
+    # Constants.
+    a /= 2
+    b /= 2
+    s = sin(turn)
+    c = cos(turn)
+
     # Drawing.
-    pd()
     color(brdclr, fill)
     begin_fill()
-    for deg in range(angle + 1):
+    for deg in range(0, angle + 1, 5):
         rad = radians(deg)
-        x = (a * cos(rad) + x0) * cos(turn) - (b * sin(rad) + y0) * sin(turn)
-        y = (a * cos(rad) + x0) * sin(turn) + (b * sin(rad) + y0) * cos(turn)
-        # print(x, " ", y)
+        x = (a * cos(rad)) * c + x0 - (b * sin(rad)) * s + y0
+        y = (a * cos(rad)) * s + x0 + (b * sin(rad)) * c + y0
+        print(xcor(), " ", ycor(), " ", sin(rad), " ", cos(rad))
         goto(x, y)
-    xs = (a * cos(0) + x0) * cos(turn) - (b * sin(0) + y0) * sin(turn)
-    ys = (a * cos(0) + x0) * sin(turn) + (b * sin(0) + y0) * cos(turn)
+        pd()
+    xs = a * c + x0 - y0
+    ys = a * s + x0 + y0
     goto(xs, ys)
     end_fill()
 
@@ -175,7 +180,7 @@ def rhomb(x, y, turn, length, angle, border, brdclr="black", fill=''):
     goto(0, 0)
 
 
-def trap(x0, y0, turn, a, b, h, border=1, brdclr="black", fill=''):
+def trap(x0=0, y0=0, turn=0, a=50, b=25, h=20, border=1, brdclr="black", fill=''):
     """
 
     x0, y0 - position
@@ -233,8 +238,9 @@ def left():
     y: [-500; 500]
 
     """
-    # speed(1)
-    # arc(200, 100, 45, 50, 20)
+    speed(20)
+    trap()
+    arc(200, 0, 90, 100, 60, 180)
 
 
 def middle():
