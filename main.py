@@ -16,6 +16,7 @@ def triangle(x, y, turn, side1, side2, angle, border, brdclr="black", fill=''):
     pensize(border)
     angle1 = angle
     head = heading()
+    posit = pos()
 
     # Drawing.
     pu()
@@ -34,9 +35,8 @@ def triangle(x, y, turn, side1, side2, angle, border, brdclr="black", fill=''):
     rt(180 - angle1)
     end_fill()
     pu()
-    goto(0, 0)
+    goto(posit)
     seth(head)
-    done()
 
 
 def arc(x0, y0, turn, a, b, angle=360, border=1, brdclr='black', fill=''):
@@ -99,6 +99,7 @@ def rectangle(x, y, turn, a, b, border, brdclr="black", fill=''):
     color(brdclr, fill)
     pensize(border)
     head = heading()
+    posit = pos()
 
     # Drawing.
     pu()
@@ -113,9 +114,8 @@ def rectangle(x, y, turn, a, b, border, brdclr="black", fill=''):
         rt(90)
     end_fill()
     pu()
-    goto(0, 0)
+    goto(posit)
     seth(head)
-    done()
 
 
 def n_shape(x, y, turn, length, n, border, brdclr="black", fill=''):
@@ -163,6 +163,7 @@ def rhomb(x, y, turn, length, angle, border, brdclr="black", fill=''):
     color(brdclr, fill)
     pensize(border)
     head = heading()
+    posit = pos()
 
     # Drawing.
     pu()
@@ -178,9 +179,8 @@ def rhomb(x, y, turn, length, angle, border, brdclr="black", fill=''):
         lt(angle)
     end_fill()
     pu()
-    goto(0, 0)
+    goto(posit)
     seth(head)
-    done()
 
 
 def trap(x0, y0, turn, a, b, h, border=1, brdclr="black", fill=''):
