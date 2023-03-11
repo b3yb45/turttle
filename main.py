@@ -2,7 +2,7 @@ from turtle import *
 from math import *
 
 
-def triangle(x, y, turn, side1, side2, angle, border, brdclr, bgclr):
+def triangle(x, y, turn, side1, side2, angle, border, brdclr, fill):
     """"
 
     x, y - position
@@ -11,18 +11,14 @@ def triangle(x, y, turn, side1, side2, angle, border, brdclr, bgclr):
 
     """
 
-    x, y = map(float, input('x, y =').split())  # Parameters.
-    turn = int(input('turn ='))
-    brdclr, bgclr = input('colors =').split()  # Colors of border and figure.
-    side1, side2 = map(float, input('sides=').split())  # Length of sides.
-    border = float(input('pen size ='))
-    angle1 = int(input('angle ='))  # Angle between two sides
-
-    pu()
-    setx(x)
-    sety(y)
-    color(brdclr, bgclr)
+    # Setting the parameters.
+    color(brdclr, fill)
     pensize(border)
+    angle1 = angle
+
+    # Start.
+    pu()
+    goto(x, y)
     rt(turn)
     pd()
     begin_fill()
@@ -37,6 +33,7 @@ def triangle(x, y, turn, side1, side2, angle, border, brdclr, bgclr):
     rt(180 - angle1)
     end_fill()
     pu()
+    goto(0, 0)
     done()
 
 
@@ -87,7 +84,7 @@ def arc(x0, y0, turn, a, b, angle=360, border=1, brdclr='black', fill=''):
     seth(head)
 
 
-def rectangle(x, y, turn, a, b, border, brdclr, bgclr):
+def rectangle(x, y, turn, a, b, border, brdclr, fill):
     """"
 
     x, y - position
@@ -96,17 +93,13 @@ def rectangle(x, y, turn, a, b, border, brdclr, bgclr):
 
     """
 
-    x, y = map(float, input('x, y = ').split())  # Parameters.
-    turn = int(input('turn ='))
-    brdclr, bgclr = input('colors = ').split()  # Color of border and figure.
-    a, b = map(float, input('length, width =').split())  # Length and width of figure.
-    border = float(input('pen size ='))
-
-    pu()
-    setx(x)
-    sety(y)
-    color(brdclr, bgclr)
+   # Setting the parameters.
+    color(brdclr, fill)
     pensize(border)
+
+    # Start.
+    pu()
+    goto(x, y)
     rt(turn)
     pd()
     begin_fill()
@@ -117,6 +110,7 @@ def rectangle(x, y, turn, a, b, border, brdclr, bgclr):
         rt(90)
     end_fill()
     pu()
+    goto(0, 0)
     done()
 
 
@@ -152,7 +146,7 @@ def n_shape(x, y, turn, length, n, border, brdclr, bgclr):
     pass
 
 
-def rhomb(x, y, turn, length, angle, border, brdclr, bgclr):
+def rhomb(x, y, turn, length, angle, border, brdclr, fill):
     """
 
     x, y - position
@@ -161,18 +155,12 @@ def rhomb(x, y, turn, length, angle, border, brdclr, bgclr):
 
     """
 
-    x, y = map(int, input('x, y =').split())  # Parameters.
-    turn = int(input('turn ='))
-    brdclr, bgclr = input('color =').split()  # Colors of border and figure.
-    length = float(input('sides ='))  # Sides of figure.
-    border = float(input('pensize ='))
-    angle = int(input('angle ='))
-
-    pu()
-    setx(x)
-    sety(y)
+    # Setting the parameters.
+    color(brdclr, fill)
     pensize(border)
-    color(brdclr, bgclr)
+
+    # Start.
+    goto(x, y)
     rt(turn)
     pd()
     begin_fill()
@@ -183,6 +171,7 @@ def rhomb(x, y, turn, length, angle, border, brdclr, bgclr):
         lt(angle)
     end_fill()
     pu()
+    goto(0, 0)
     done()
 
 
