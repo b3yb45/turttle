@@ -74,7 +74,7 @@ def arc(x0, y0, turn, a, b, angle=360, border=1, brdclr='black', fill=''):
         rad = radians(deg)
         x = (a * cos(rad) + x0) * cos(turn) - (b * sin(rad) + y0) * sin(turn)
         y = (a * cos(rad) + x0) * sin(turn) + (b * sin(rad) + y0) * cos(turn)
-        print(x, " ", y)
+        # print(x, " ", y)
         goto(x, y)
     xs = (a * cos(0) + x0) * cos(turn) - (b * sin(0) + y0) * sin(turn)
     ys = (a * cos(0) + x0) * sin(turn) + (b * sin(0) + y0) * cos(turn)
@@ -244,11 +244,8 @@ def left():
     y: [-500; 500]
 
     """
-    speed(10)
-    trap(500, 200, 90, 100, 50, 50)
-    trap(900, 500, 180, 100, 50, 50)
-    trap(-900, 500, 180, 100, 50, 50)
-    arc(200, 100, 45, 50, 20)
+    # speed(1)
+    # arc(200, 100, 45, 50, 20)
 
 
 def middle():
