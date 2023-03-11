@@ -15,8 +15,9 @@ def triangle(x, y, turn, side1, side2, angle, border, brdclr="black", fill=''):
     color(brdclr, fill)
     pensize(border)
     angle1 = angle
+    head = heading()
 
-    # Start.
+    # Drawing.
     pu()
     goto(x, y)
     rt(turn)
@@ -34,6 +35,7 @@ def triangle(x, y, turn, side1, side2, angle, border, brdclr="black", fill=''):
     end_fill()
     pu()
     goto(0, 0)
+    seth(head)
     done()
 
 
@@ -96,8 +98,9 @@ def rectangle(x, y, turn, a, b, border, brdclr="black", fill=''):
     # Setting the parameters.
     color(brdclr, fill)
     pensize(border)
+    head = heading()
 
-    # Start.
+    # Drawing.
     pu()
     goto(x, y)
     rt(turn)
@@ -111,6 +114,8 @@ def rectangle(x, y, turn, a, b, border, brdclr="black", fill=''):
     end_fill()
     pu()
     goto(0, 0)
+    seth(head)
+    done()
 
 
 def n_shape(x, y, turn, length, n, border, brdclr="black", fill=''):
@@ -157,8 +162,9 @@ def rhomb(x, y, turn, length, angle, border, brdclr="black", fill=''):
     # Setting the parameters.
     color(brdclr, fill)
     pensize(border)
+    head = heading()
 
-    # Start.
+    # Drawing.
     pu()
     goto(x, y)
     rt(turn)
@@ -173,6 +179,8 @@ def rhomb(x, y, turn, length, angle, border, brdclr="black", fill=''):
     end_fill()
     pu()
     goto(0, 0)
+    seth(head)
+    done()
 
 
 def trap(x0, y0, turn, a, b, h, border=1, brdclr="black", fill=''):
