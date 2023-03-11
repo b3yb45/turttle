@@ -2,7 +2,7 @@ from turtle import *
 from math import *
 
 
-def triangle(x, y, turn, side1, side2, angle, border, brdclr, fill):
+def triangle(x, y, turn, side1, side2, angle, border, brdclr="black", fill=''):
     """"
 
     x, y - position
@@ -84,7 +84,7 @@ def arc(x0, y0, turn, a, b, angle=360, border=1, brdclr='black', fill=''):
     seth(head)
 
 
-def rectangle(x, y, turn, a, b, border, brdclr, fill):
+def rectangle(x, y, turn, a, b, border, brdclr="black", fill=''):
     """"
 
     x, y - position
@@ -93,7 +93,7 @@ def rectangle(x, y, turn, a, b, border, brdclr, fill):
 
     """
 
-   # Setting the parameters.
+    # Setting the parameters.
     color(brdclr, fill)
     pensize(border)
 
@@ -111,10 +111,9 @@ def rectangle(x, y, turn, a, b, border, brdclr, fill):
     end_fill()
     pu()
     goto(0, 0)
-    done()
 
 
-def n_shape(x, y, turn, length, n, border, brdclr, bgclr):
+def n_shape(x, y, turn, length, n, border, brdclr="black", fill=''):
     """
 
     x, y - position
@@ -146,7 +145,7 @@ def n_shape(x, y, turn, length, n, border, brdclr, bgclr):
     pass
 
 
-def rhomb(x, y, turn, length, angle, border, brdclr, fill):
+def rhomb(x, y, turn, length, angle, border, brdclr="black", fill=''):
     """
 
     x, y - position
@@ -160,11 +159,13 @@ def rhomb(x, y, turn, length, angle, border, brdclr, fill):
     pensize(border)
 
     # Start.
+    pu()
     goto(x, y)
     rt(turn)
     pd()
     begin_fill()
     for i in range(2):
+        print(isvisible(), "", isdown())
         fd(length)
         lt(180 - angle)
         fd(length)
@@ -172,7 +173,6 @@ def rhomb(x, y, turn, length, angle, border, brdclr, fill):
     end_fill()
     pu()
     goto(0, 0)
-    done()
 
 
 def trap(x0, y0, turn, a, b, h, border=1, brdclr="black", fill=''):
