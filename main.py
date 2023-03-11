@@ -40,7 +40,7 @@ def triangle(x, y, turn, side1, side2, angle, border, brdclr, bgclr):
     done()
 
 
-def arc(x0, y0, turn, a, b, angle, border, brdclr='black', fill=''):
+def arc(x0, y0, turn, a, b, angle=360, border=1, brdclr='black', fill=''):
     """
 
     x0, y0 - position
@@ -85,7 +85,6 @@ def arc(x0, y0, turn, a, b, angle, border, brdclr='black', fill=''):
     pu()
     goto(prev_pos)
     seth(head)
-    done()
 
 
 def rectangle(x, y, turn, a, b, border, brdclr, bgclr):
@@ -187,18 +186,54 @@ def rhomb(x, y, turn, length, angle, border, brdclr, bgclr):
     done()
 
 
-def trap(x, y, turn, a, b, h, angle, border, brdclr, bgclr):
+def trap(x0, y0, turn, a, b, h, border=1, brdclr="black", fill=''):
     """
 
-    x, y - position
+    x0, y0 - position
     a, b - bases
-    h - height
-    turn - starting a angle
+    h - trapezoid height
+    turn - shape tilt
     border - border width
+    brdclr, bgclr - shape colors
 
     """
 
-    pass
+    # setting shape parameters
+    pensize(border)
+    color(brdclr, fill)
+
+    prev_pos = pos()
+    head = heading()
+    lt(turn)
+
+    # start
+    if isdown():
+        pu()
+    goto(x0, y0)
+
+    if b > a:
+        a, b = b, a
+
+    # drawing
+    pd()
+    color(brdclr, fill)
+    begin_fill()
+    fd(a)
+    a1 = abs(a - b) / 2
+    c = sqrt(h ** 2 + a1 ** 2)
+    alph = degrees(asin(h / c))
+    lt(180 - alph)
+    fd(c)
+    lt(alph)
+    fd(b)
+    lt(alph)
+    fd(c)
+    end_fill()
+
+    # returning
+    pu()
+    goto(prev_pos)
+    seth(head)
 
 
 def left():
@@ -208,8 +243,9 @@ def left():
     x: [-400; -133]
 
     """
-    speed(1)
-    arc(100, -100, -45, 100, 75, 360, 3, "black", "green")
+    speed(10)
+    trap(500, 200, 90, 100, 50, 50)
+    arc(200, 100, 45, 50, 20)
 
 
 def middle():
@@ -236,6 +272,7 @@ def execute_main():
     left()
     middle()
     right()
+    done()
 
 
 if __name__ == '__main__':
