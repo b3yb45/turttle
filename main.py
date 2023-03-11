@@ -95,6 +95,31 @@ def rhomb(x, y, turn, length, angle, border, brdclr, bgclr):
 
     """
 
+    a, b = map(float, input("Enter coordinates x, y: ").split())
+    length = float(input("Enter side length: "))
+    angle = float(input("Enter angle: "))
+    border = float(input("Enter border width: "))
+    color("pink", "cyan")
+    angle_2 = 360 - (2 * angle)
+
+    setx(a)
+    sety(b)
+    pensize(border)
+
+    begin_fill()
+    pd()
+    rt(angle)
+    fd(length)
+    rt(angle_2)
+    fd(length)
+    lt(angle)
+    fd(length)
+    rt(angle_2)
+    fd(length)
+    end_fill()
+    pu()
+    done()
+
     pass
 
 
