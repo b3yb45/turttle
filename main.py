@@ -77,7 +77,7 @@ def arc(x0=0, y0=0, turn=0, a=50, b=25, angle=360, border=1, brdclr='black', fil
         rad = radians(deg)
         x = (a * cos(rad)) * c + x0 - (b * sin(rad)) * s + y0
         y = (a * cos(rad)) * s + x0 + (b * sin(rad)) * c + y0
-        print(xcor(), " ", ycor(), " ", sin(rad), " ", cos(rad))
+        # print(xcor(), " ", ycor(), " ", sin(rad), " ", cos(rad))
         goto(x, y)
         pd()
     xs = a * c + x0 - y0
