@@ -40,28 +40,108 @@ def triangle(x, y, turn, side1, side2, angle, border, brdclr, bgclr):
     done()
 
 
-def ellipse(x, y, turn, a, b, border, brdclr, bgclr):
+def ellipse(x0, y0, turn, a, b, border, brdclr, bgclr):
     """"
 
-    x, y - position
+    x0, y0 - position
     a, b - semi-axes
-    turn - starting a angle
+    turn - shape tilt
     border - border width
+    brdclr, bgclr - shape colors
 
     """
-    pass
+
+    # setting shape parameters
+    pensize(border)
+    color(brdclr, bgclr)
+
+    prev_pos = pos()
+    head = heading()
+
+    # start
+    seth(turn)
+    pu()
+    goto(x0, y0)
+
+    # defining constants
+    alph = radians(turn)
+    el_a = (cos(alph) / a) ** 2 + (sin(alph) / b) ** 2
+    el_b = 2 * sin(alph) * cos(alph) * (a ** -2 - b ** -2)
+    el_c = (cos(alph) / b) ** 2 + (sin(alph) / a) ** 2
+    el_d = 2 * (y0 * sin(alph) / b ** 2 - x0 * cos(alph) / a ** 2)
+    el_e = -2 * (y0 * cos(alph) / b ** 2 + x0 * sin(alph) / a ** 2)
+    el_f = (x0 / a) ** 2 + (y0 / b) ** 2 - 1
+
+    # drawing
+    pd()
+    begin_fill()
+    for x in range(ceil(xcor()), ceil(x0 + a * cos(alph))):
+        el_dis = (el_b * x + el_e) ** 2 - 4 * el_c * (el_a * x ** 2 + el_d * x + el_f)
+        if el_dis >= 0:
+            y1 = ceil((-(el_b * x + el_e) + sqrt(el_dis)) / 2 / el_c)
+            goto(x, y1)
+
+    for x in range(ceil(xcor()), ceil(x0)):
+        el_dis = (el_b * x + el_e) ** 2 - 4 * el_c * (el_a * x ** 2 + el_d * x + el_f)
+        if el_dis >= 0:
+            y2 = ceil((-(el_b * x + el_e) - sqrt(el_dis)) / 2 / el_c)
+            goto(x, y2)
+
+    # returning
+    pu()
+    goto(prev_pos)
+    seth(head)
 
 
-def half_ellipse(x0, y0, turn, a, b, border, brdclr, bgclr):
+def half_ellipse(x0, y0, turn, a, b, border, brdclr, bgclr, clockwise=False):
     """"
 
-    x, y - position
+    x0, y0 - position
     a, b - semi-axes
-    turn - starting a angle
+    clockwise - arc position related to a side
+    turn - shape tilt
     border - border width
+    brdclr, bgclr - shape colors
 
     """
-    pass
+    # setting shape parameters
+    pensize(border)
+    color(brdclr, bgclr)
+
+    prev_pos = pos()
+    head = heading()
+
+    # start
+    seth(turn)
+    pu()
+    goto(x0, y0)
+
+    # defining constants
+    alph = radians(turn)
+    el_a = (cos(alph) / a) ** 2 + (sin(alph) / b) ** 2
+    el_b = 2 * sin(alph) * cos(alph) * (a ** -2 - b ** -2)
+    el_c = (cos(alph) / b) ** 2 + (sin(alph) / a) ** 2
+    el_d = 2 * (y0 * sin(alph) / b ** 2 - x0 * cos(alph) / a ** 2)
+    el_e = -2 * (y0 * cos(alph) / b ** 2 + x0 * sin(alph) / a ** 2)
+    el_f = (x0 / a) ** 2 + (y0 / b) ** 2 - 1
+
+    # drawing
+    pd()
+    fd(a)
+    begin_fill()
+    for x in range(ceil(xcor()), ceil(x0)):
+        el_dis = (el_b * x + el_e) ** 2 - 4 * el_c * (el_a * x ** 2 + el_d * x + el_f)
+        if el_dis >= 0:
+            if clockwise:
+                y = ceil((-(el_b * x + el_e) + sqrt(el_dis)) / 2 / el_c)
+            else:
+                y = ceil((-(el_b * x + el_e) - sqrt(el_dis)) / 2 / el_c)
+            goto(x, y)
+
+    # returning
+    pu()
+    goto(prev_pos)
+    seth(head)
 
 
 def rectangle(x, y, turn, a, b, border, brdclr, bgclr):
@@ -125,8 +205,6 @@ def n_shape(x, y, turn, length, n, border, brdclr, bgclr):
     end_fill
     pu()
     done()
-
-
 
     pass
 
