@@ -53,7 +53,7 @@ def arc(x0, y0, turn, a, b, angle=360, border=1, brdclr='black', fill=''):
 
     """
 
-    # setting shape parameters
+    # Setting shape parameters.
     pensize(border)
     color(brdclr, fill)
 
@@ -61,12 +61,12 @@ def arc(x0, y0, turn, a, b, angle=360, border=1, brdclr='black', fill=''):
     head = heading()
     turn = radians(turn)
 
-    # start
+    # Start.
     if isdown():
         pu()
     goto(x0, y0)
 
-    # drawing
+    # Drawing.
     pd()
     color(brdclr, fill)
     begin_fill()
@@ -81,7 +81,7 @@ def arc(x0, y0, turn, a, b, angle=360, border=1, brdclr='black', fill=''):
     goto(xs, ys)
     end_fill()
 
-    # returning
+    # Returning.
     pu()
     goto(prev_pos)
     seth(head)
@@ -198,7 +198,7 @@ def trap(x0, y0, turn, a, b, h, border=1, brdclr="black", fill=''):
 
     """
 
-    # setting shape parameters
+    # Setting shape parameters.
     pensize(border)
     color(brdclr, fill)
 
@@ -206,7 +206,7 @@ def trap(x0, y0, turn, a, b, h, border=1, brdclr="black", fill=''):
     head = heading()
     lt(turn)
 
-    # start
+    # Start.
     if isdown():
         pu()
     goto(x0, y0)
@@ -214,7 +214,7 @@ def trap(x0, y0, turn, a, b, h, border=1, brdclr="black", fill=''):
     if b > a:
         a, b = b, a
 
-    # drawing
+    # Drawing.
     pd()
     color(brdclr, fill)
     begin_fill()
@@ -230,7 +230,7 @@ def trap(x0, y0, turn, a, b, h, border=1, brdclr="black", fill=''):
     fd(c)
     end_fill()
 
-    # returning
+    # Returning.
     pu()
     goto(prev_pos)
     seth(head)
