@@ -1,6 +1,9 @@
-''' Igor Andreev - 35
+'''
+
+    Igor Andreev - 35
     Aronova Alexandra - 40
     Murashova Irina - 50
+
 '''
 
 
@@ -152,7 +155,6 @@ def execute_main():
     for i in range(5):
         arc(-150, 200 + i * 50, 90, 50, 15, 180, 1, "forestgreen", 'forestgreen')
         triangle(-200 - i * 50, -125, 67.5, 20, 20, 45, 1, "red", "red")
-
 
     # Tree: rec, many ovals.
     rectangle(630, -85, 90, 500, 105, 1, "sienna", 'sienna')
