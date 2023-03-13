@@ -145,6 +145,15 @@ def execute_main():
     # Grass.
     arc(0, -350, 0, 1280, 450, 180, 3, "lawngreen", 'lawngreen')
 
+    # Lake.
+    arc(100, -300, 0, 600, 150, 270, 3, "blue", 'blue')
+
+    # Flowers.
+    for i in range(5):
+        arc(-150, 200 + i * 50, 90, 50, 15, 180, 1, "forestgreen", 'forestgreen')
+        triangle(-200 - i * 50, -125, 67.5, 20, 20, 45, 1, "red", "red")
+
+
     # Tree: rec, many ovals.
     rectangle(630, -85, 90, 500, 105, 1, "sienna", 'sienna')
 
