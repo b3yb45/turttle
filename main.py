@@ -1,3 +1,9 @@
+''' Igor Andreev -
+    Aronova Alexandra - 40
+    Murashova Irina - 
+'''
+
+
 from turtle import *
 from math import *
 
@@ -157,9 +163,6 @@ def n_shape(x, y, turn, length, n, border, brdclr="black", fill=''):
         rt(360 / n)
     end_fill
     pu()
-    done()
-
-    pass
 
 
 def rhomb(x, y, turn, length, angle, border, brdclr="black", fill=''):
