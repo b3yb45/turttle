@@ -1,6 +1,9 @@
-''' Igor Andreev -
+'''
+
+    Igor Andreev - 35
     Aronova Alexandra - 40
-    Murashova Irina - 
+    Murashova Irina -
+
 '''
 
 
@@ -136,118 +139,6 @@ def rectangle(x, y, turn, a, b, border, brdclr="black", fill=''):
     seth(head)
 
 
-def n_shape(x, y, turn, length, n, border, brdclr="black", fill=''):
-    """
-
-    x, y - position
-    turn - starting a angle
-    border - border width
-
-    """
-    shape("turtle")
-
-    a, b = map(float, input("Enter coordinates x, y: ").split())
-    length = float(input("Enter side length: "))
-    n = int(input("Enter the amount of angles: "))
-    border = float(input("Enter border width: "))
-    color("pink", "cyan")
-
-    setx(a)
-    sety(b)
-    pensize(border)
-
-    begin_fill
-    pd()
-    for i in range(n):
-        fd(length)
-        rt(360 / n)
-    end_fill
-    pu()
-
-
-def rhomb(x, y, turn, length, angle, border, brdclr="black", fill=''):
-    """
-
-    x, y - position
-    turn - starting a angle
-    border - border width
-
-    """
-
-    # Setting the parameters.
-    color(brdclr, fill)
-    pensize(border)
-    head = heading()
-    posit = pos()
-
-    # Drawing.
-    pu()
-    goto(x, y)
-    rt(turn)
-    pd()
-    begin_fill()
-    for i in range(2):
-        print(isvisible(), "", isdown())
-        fd(length)
-        lt(180 - angle)
-        fd(length)
-        lt(angle)
-    end_fill()
-    pu()
-    goto(posit)
-    seth(head)
-
-
-def trap(x0=0, y0=0, turn=0, a=50, b=25, h=20, border=1, brdclr="black", fill=''):
-    """
-
-    x0, y0 - position.
-    a, b - bases.
-    h - trapezoid height.
-    turn - shape tilt.
-    border - border width.
-    brdclr, bgclr - shape colors.
-
-    """
-
-    # Setting shape parameters.
-    pensize(border)
-    color(brdclr, fill)
-
-    prev_pos = pos()
-    head = heading()
-    lt(turn)
-
-    # Start.
-    if isdown():
-        pu()
-    goto(x0, y0)
-
-    if b > a:
-        a, b = b, a
-
-    # Drawing.
-    pd()
-    color(brdclr, fill)
-    begin_fill()
-    fd(a)
-    a1 = abs(a - b) / 2
-    c = sqrt(h ** 2 + a1 ** 2)
-    alph = degrees(asin(h / c))
-    lt(180 - alph)
-    fd(c)
-    lt(alph)
-    fd(b)
-    lt(alph)
-    fd(c)
-    end_fill()
-
-    # Returning.
-    pu()
-    goto(prev_pos)
-    seth(head)
-
-
 def execute_main():
     setup(1200, 600)
     speed(10)
@@ -256,6 +147,14 @@ def execute_main():
 
     # Grass.
     arc(0, -350, 0, 1280, 450, 180, 3, "lawngreen", 'lawngreen')
+
+    # Lake.
+    arc(100, -300, 0, 600, 150, 270, 3, "blue", 'blue')
+
+    # Flowers.
+    for i in range(5):
+        arc(-150, 200 + i * 50, 90, 50, 15, 180, 1, "forestgreen", 'forestgreen')
+        triangle(-200 - i * 50, -125, 67.5, 20, 20, 45, 1, "red", "red")
 
     # Tree: rec, many ovals.
     rectangle(630, -85, 90, 500, 105, 1, "sienna", 'sienna')
