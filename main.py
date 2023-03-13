@@ -62,7 +62,6 @@ def arc(x0=0, y0=0, turn=0, a=50, b=25, angle=360, border=1, brdclr='black', fil
 
     # Start.
     pu()
-    goto(x0, y0)
 
     # Constants.
     turn = radians(turn)
@@ -74,18 +73,22 @@ def arc(x0=0, y0=0, turn=0, a=50, b=25, angle=360, border=1, brdclr='black', fil
     xc0 = x0 * c
     ys0 = y0 * s
     yc0 = y0 * c
+    a_s = a * s
+    a_c = a * c
+    b_s = b * s
+    b_c = b * c
 
     # Drawing.
     color(brdclr, fill)
     begin_fill()
     for deg in range(0, angle + 1, 5):
         rad = radians(deg)
-        x = a * cos(rad) * c + xc0 - b * sin(rad) * s - ys0
-        y = a * cos(rad) * s + xs0 + b * sin(rad) * c + yc0
+        x = a_c * cos(rad) + xc0 - b_s * sin(rad) - ys0
+        y = a_s * cos(rad) + xs0 + b_c * sin(rad) + yc0
         goto(x, y)
         pd()
-    xs = a * c + xc0 - ys0
-    ys = a * s + xs0 + yc0
+    xs = a_c + xc0 - ys0
+    ys = a_s + xs0 + yc0
     goto(xs, ys)
     end_fill()
 
@@ -250,11 +253,13 @@ def left():
     y: [-500; 500]
 
     """
-    """"speed(10)
+    """speed(10)
     rectangle(-500, 500, 0, 1000, 1000, 1, "blue", "blue")
     arc(0, -400, 0, 3000, 500, 180, 4, "black", "green")
     arc(450, 350, 0, 200, 200, 360, 4, "black", "yellow")
     goto(0, -200)"""
+
+    arc(0, 500, 90, 200, 100, 180, 4, "black", "green")
 
 
 def middle():
