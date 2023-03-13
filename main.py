@@ -42,12 +42,12 @@ def triangle(x, y, turn, side1, side2, angle, border, brdclr="black", fill=''):
 def arc(x0=0, y0=0, turn=0, a=50, b=25, angle=360, border=1, brdclr='black', fill=''):
     """
 
-    x0, y0 - position
-    a, b - semi-axes
-    turn - shape tilt
-    angle - part of ellipse
-    border - border width
-    brdclr, bgclr - shape colors
+    x0, y0 - position.
+    a, b - semi-axes.
+    turn - shape tilt.
+    angle - part of ellipse.
+    border - border width.
+    brdclr, bgclr - shape colors.
 
 
     """
@@ -58,30 +58,33 @@ def arc(x0=0, y0=0, turn=0, a=50, b=25, angle=360, border=1, brdclr='black', fil
 
     prev_pos = pos()
     head = heading()
-    turn = radians(turn)
 
     # Start.
     pu()
     goto(x0, y0)
 
     # Constants.
+    turn = radians(turn)
     a /= 2
     b /= 2
     s = sin(turn)
     c = cos(turn)
+    xs0 = x0 * s
+    xc0 = x0 * c
+    ys0 = y0 * s
+    yc0 = y0 * c
 
     # Drawing.
     color(brdclr, fill)
     begin_fill()
     for deg in range(0, angle + 1, 5):
         rad = radians(deg)
-        x = (a * cos(rad)) * c + x0 - (b * sin(rad)) * s + y0
-        y = (a * cos(rad)) * s + x0 + (b * sin(rad)) * c + y0
-        # print(xcor(), " ", ycor(), " ", sin(rad), " ", cos(rad))
+        x = a * cos(rad) * c + xc0 - b * sin(rad) * s - ys0
+        y = a * cos(rad) * s + xs0 + b * sin(rad) * c + yc0
         goto(x, y)
         pd()
-    xs = a * c + x0 - y0
-    ys = a * s + x0 + y0
+    xs = a * c + xc0 - ys0
+    ys = a * s + xs0 + yc0
     goto(xs, ys)
     end_fill()
 
@@ -191,12 +194,12 @@ def rhomb(x, y, turn, length, angle, border, brdclr="black", fill=''):
 def trap(x0=0, y0=0, turn=0, a=50, b=25, h=20, border=1, brdclr="black", fill=''):
     """
 
-    x0, y0 - position
-    a, b - bases
-    h - trapezoid height
-    turn - shape tilt
-    border - border width
-    brdclr, bgclr - shape colors
+    x0, y0 - position.
+    a, b - bases.
+    h - trapezoid height.
+    turn - shape tilt.
+    border - border width.
+    brdclr, bgclr - shape colors.
 
     """
 
@@ -246,9 +249,11 @@ def left():
     y: [-500; 500]
 
     """
-    speed(20)
-    trap()
-    arc(200, 0, 90, 100, 60, 180)
+    """"speed(10)
+    rectangle(-500, 500, 0, 1000, 1000, 1, "blue", "blue")
+    arc(0, -400, 0, 3000, 500, 180, 4, "black", "green")
+    arc(450, 350, 0, 200, 200, 360, 4, "black", "yellow")
+    goto(0, -200)"""
 
 
 def middle():
