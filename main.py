@@ -253,13 +253,6 @@ def left():
     y: [-500; 500]
 
     """
-    """speed(10)
-    rectangle(-500, 500, 0, 1000, 1000, 1, "blue", "blue")
-    arc(0, -400, 0, 3000, 500, 180, 4, "black", "green")
-    arc(450, 350, 0, 200, 200, 360, 4, "black", "yellow")
-    goto(0, -200)"""
-
-    arc(0, 500, 90, 200, 100, 180, 4, "black", "green")
 
 
 def middle():
