@@ -245,39 +245,8 @@ def trap(x0=0, y0=0, turn=0, a=50, b=25, h=20, border=1, brdclr="black", fill=''
     seth(head)
 
 
-def left():
-    """
-
-    Igor
-    x: [-900; -300]
-    y: [-500; 500]
-
-    """
-
-
-def middle():
-    """
-
-    Ira
-    x: [-300; 300]
-    y: [-500; 500]
-
-    """
-    pass
-
-
-def right():
-    """
-
-    Sasha
-    x: [300; 900]
-    y: [-500; 500]
-
-    """
-    pass
-
-
 def execute_main():
+    setup(1200, 600)
     speed(10)
 
     bgcolor("dodgerblue")
