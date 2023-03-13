@@ -2,7 +2,7 @@
 
     Igor Andreev - 35
     Aronova Alexandra - 40
-    Murashova Irina -
+    Murashova Irina - 50
 
 '''
 
