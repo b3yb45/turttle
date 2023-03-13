@@ -2,38 +2,39 @@ from turtle import *
 from math import *
 
 
-def triangle(x, y, turn, side1, side2, angle, border, brdclr="black", fill=''):
+def triangle(x, y, turn, side_1, side_2, angle, border, brdclr="black", fill=''):
     """"
-
     x, y - position
     turn - starting side1 angle
     border - border width
-
     """
 
     # Setting the parameters.
     color(brdclr, fill)
     pensize(border)
-    angle1 = angle
+    angle_1 = radians(angle)
     head = heading()
     posit = pos()
+
+    side_3 = sqrt(side_1 ** 2 + side_2 ** 2 - 2 * side_1 * side_2 * cos(angle_1))
+    angle_2 = degrees(acos((side_1 ** 2 + side_3 ** 2 - side_2 ** 2)/(2 * side_1 * side_3)))
+    angle_3 = degrees(acos((side_2 ** 2 + side_3 ** 2 - side_1 ** 2)/(2 * side_2 * side_3)))
 
     # Drawing.
     pu()
     goto(x, y)
-    rt(turn)
+    lt(turn)
     pd()
     begin_fill()
-    side3 = sqrt(side1 ** 2 + side2 ** 2 - 2 * side1 * side2 * cos(angle1))
-    angle2 = degrees(acos((side3 ** 2 + side2 ** 2 - side1 ** 2) / (2 * side2 * side3)))
-    angle3 = degrees(acos((side1 ** 2 + side3 ** 2 - side2 ** 2) / (2 * side1 * side3)))
-    fd(side1)
-    rt(180 - angle3)
-    fd(side3)
-    rt(180 - angle2)
-    fd(side2)
-    rt(180 - angle1)
+    fd(side_1)
+    lt(180 - angle_2)
+    fd(side_3)
+    lt(180 - angle_3)
+    fd(side_2)
+    lt(180 - angle_1)
     end_fill()
+
+    # Return.
     pu()
     goto(posit)
     seth(head)
