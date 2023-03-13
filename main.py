@@ -31,7 +31,7 @@ def triangle(x, y, turn, side_1, side_2, angle, border, brdclr="black", fill='')
     fd(side_3)
     lt(180 - angle_3)
     fd(side_2)
-    lt(180 - angle_1)
+    lt(180 - degrees(angle_1))
     end_fill()
 
     # Return.
